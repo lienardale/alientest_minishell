@@ -14,24 +14,24 @@
 # expected :
 # stdin_mode : "bash: syntax error near unexpected token `;;'"
 # in_file_mode :
-# "tests/debug.sh: line 6: syntax error near unexpected token `;;'
-# tests/debug.sh: line 6: `echo ;;;;'"
+# "alientest_minishell/debug.sh: line 6: syntax error near unexpected token `;;'
+# alientest_minishell/debug.sh: line 6: `echo ;;;;'"
 # ->doesn't read the .sh further
 # echo ;;;;
 
 # expected :
 # stdin_mode : "bash: syntax error near unexpected token `;'"
 # in_file_mode :
-# "tests/debug.sh: line 6: syntax error near unexpected token `;'
-# tests/debug.sh: line 6: `echo ; ; ; ;'"
+# "alientest_minishell/debug.sh: line 6: syntax error near unexpected token `;'
+# alientest_minishell/debug.sh: line 6: `echo ; ; ; ;'"
 # ->doesn't read the .sh further
 # echo ; ; ; ;
 
 # expected :
 # stdin_mode : "bash: syntax error near unexpected token `|'"
 # in_file_mode :
-# "tests/debug.sh: line 7: syntax error near unexpected token `|'
-# tests/debug.sh: line 7: `echo test | | wc; echo lol'"
+# "alientest_minishell/debug.sh: line 7: syntax error near unexpected token `|'
+# alientest_minishell/debug.sh: line 7: `echo test | | wc; echo lol'"
 # ->doesn't read the .sh further
 # echo test | | wc; echo lol
 
@@ -85,9 +85,9 @@ export test=hello ; export test += coucou ; env | grep test
 # export > 0test.log
 # cat nop.txt 2> error.txt
 # cat Dockerfile 1> 0test.log
-# echo coucou > ../tests/test.log
+# echo coucou > ../alientest_minishell/test.log
 # echo coucou > 0test.log 1test.log 2test.log > 3test.log
-# echo coucou > ../tests/test.log
+# echo coucou > ../alientest_minishell/test.log
 # echo lol > srcs
 
 

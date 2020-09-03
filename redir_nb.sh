@@ -7,8 +7,8 @@ export > 0test.log
 cat 0test.log
 rm 0test.log
 
-# expected : bash: ../tests/test.log: No such file or directory
-echo coucou > ../tests/test.log
+# expected : bash: ../alientest_minishell/test.log: No such file or directory
+echo coucou > ../alientest_minishell/test.log
 # expected : is a directory
 echo lol > srcs
 # expected : bash: syntax error near unexpected token `newline'
