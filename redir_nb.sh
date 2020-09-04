@@ -32,6 +32,9 @@ rm lol
 
 # /!\ All above is ok /!\
 
+# echo coucou >0test.log;cat 0test.log
+# echo test > ls >> ls >> ls ; echo test
+
 # expexted : test\ntest\n
 # echo test > ls >> ls >> ls ; echo test >> ls; cat ls
 # rm ls
