@@ -81,16 +81,6 @@ export test=hello ; export test += coucou ; env | grep test
 # <
 # ls -Z
 
-#rdir pb
-# export > 0test.log
-# cat nop.txt 2> error.txt
-# cat Dockerfile 1> 0test.log
-# echo coucou > ../alientest_minishell/test.log
-# echo coucou > 0test.log 1test.log 2test.log > 3test.log
-# echo coucou > ../alientest_minishell/test.log
-# echo lol > srcs
-
-
 # malloc errors
 # export PATH= ;
 # cat Dockerfile
@@ -110,8 +100,6 @@ export test=hello ; export test += coucou ; env | grep test
 # echo \
 # echo "
 # echo '
-
-# /!\ prompt must be in STDERR
 
 # see how vm behaves for this one
 # exit 1 2

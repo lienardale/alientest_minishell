@@ -12,7 +12,7 @@ echo coucou > ../alientest_minishell/test.log ; ls
 echo coucou >> ../alientest_minishell/test.log ; ls
 # expected : is a directory
 echo lol > srcs ; ls
-echo lol >> srcs ; ls
+# echo lol >> srcs ; ls
 
 # expected : bash: syntax error near unexpected token `newline'
 # if in script : stops
@@ -31,6 +31,7 @@ rm 0test.log 3test.log
 rm lol
 
 # /!\ All above is ok /!\
+
 
 # echo coucou >0test.log;cat 0test.log
 # echo test > ls >> ls >> ls ; echo test
