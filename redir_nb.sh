@@ -60,37 +60,40 @@ rm lol
 
 
 
-# cat Dockerfile 1> 0test.log
-# cat nop.txt 2> error.txt
+cat Dockerfile 1> 0test.log
+rm 0test.log
+cat nop.txt 2> error.txt
+rm error.txt
 
-# ls efdjhgdf 2> test.log
-# ls efdjhgdf 32> test.log
-# ls efdjhgdf 1> test.log
+ls efdjhgdf 2> test.log
+ls efdjhgdf 32> test.log
+ls efdjhgdf 1> test.log
 # ls efdjhgdf 1>2 test.log
-# ls efdjhgdf 0> test.log
+# rm 2
+ls efdjhgdf 0> test.log
 # ls efdjhgdf -1> test.log
 # ls efdjhgdf \1> test.log
-# ls efdjhgdf '1'> test.log
-# ls efdjhgdf "1"> test.log
-# ls efdjhgdf 12> test.log
-# ls efdjhgdf -1> test.log
+ls efdjhgdf '1'> test.log
+ls efdjhgdf "1"> test.log
+ls efdjhgdf 12> test.log
 # ls efdjhgdf 2147483647> test.log
 # ls efdjhgdf -2147483648> test.log
 # ls efdjhgdf 2147483648654565> test.log
 
-# ls 2> test.log
-# ls 32> test.log
-# ls 1> test.log
+ls 2> test.log
+ls 32> test.log
+ls 1> test.log
 # ls 1>2 test.log
-# ls 0> test.log
+ls 0> test.log
 # ls -1> test.log
 # ls \1> test.log
-# ls '1'> test.log
-# ls "1"> test.log
-# ls 12> test.log
-# ls -1> test.log
+ls '1'> test.log
+ls "1"> test.log
+ls 12> test.log
 # ls 2147483647> test.log
 # ls -2147483648> test.log
 # ls 2147483648654565> test.log
 
-# 2> test.log ls sdfsdf
+2> test.log ls sdfsdf
+
+rm test.log
