@@ -26,8 +26,7 @@ echo -n -n return
 
 echo \n\e\e\e\d \m\o\r\e \! \\\\\\
 
-#one too many \ at the end
-# echo '\\please\\' "\"fail\\"
+echo '\\please\\' "\"fail\\"
 
 pwd
 cd ..;pwd
@@ -50,10 +49,6 @@ ls
 /bin/lol
 ./srcs
 README.md
-
-# wrong error msg
-/bin/ls/lol
-# echo lol > srcs
 
 reckt
 files

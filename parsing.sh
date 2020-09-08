@@ -92,4 +92,35 @@ echo -n -n One"argument"'lo'l; echo "n"
 echo -n -n One"argument"'lo'l; echo "n"''ee"d"more'?'''"'"
 echo -n One"argument"'lo'l ; echo "n"''ee"d"more'?'''"'"
 echo -n -n return
+echo test "" test "" test
 echo
+ 
+ |
+ecjo ;;;
+
+ls |
+ls >
+
+# expected :
+# stdin_mode : "bash: syntax error near unexpected token `;;'"
+# in_file_mode :
+# "alientest_minishell/debug.sh: line 6: syntax error near unexpected token `;;'
+# alientest_minishell/debug.sh: line 6: `echo ;;;;'"
+# ->doesn't read the .sh further
+# echo ;;;;
+
+# expected :
+# stdin_mode : "bash: syntax error near unexpected token `;'"
+# in_file_mode :
+# "alientest_minishell/debug.sh: line 6: syntax error near unexpected token `;'
+# alientest_minishell/debug.sh: line 6: `echo ; ; ; ;'"
+# ->doesn't read the .sh further
+# echo ; ; ; ;
+
+# expected :
+# stdin_mode : "bash: syntax error near unexpected token `|'"
+# in_file_mode :
+# "alientest_minishell/debug.sh: line 7: syntax error near unexpected token `|'
+# alientest_minishell/debug.sh: line 7: `echo test | | wc; echo lol'"
+# ->doesn't read the .sh further
+echo test | | wc; echo lol
