@@ -15,9 +15,6 @@ echo lol > srcs ; ls
 echo lol > srcs
 # echo lol >> srcs ; ls
 
-# expected : bash: syntax error near unexpected token `newline'
-# if in script : stops
-# ls >
 
 # cree le 0 et le 3
 echo coucou > 0test.log 1test.log 2test.log > 3test.log
@@ -63,41 +60,8 @@ rm ls
 echo test > ls >> ls >> ls ; echo test >> ls; cat ls
 rm ls
 
-
-
-
-
-# /!\ All above is ok /!\
-
-# # the last redir file is the one taken into account
-# # the args concat themselves
-# # if simple redir present for the final file it takes over append, but if it is for another file, append takes over
-# >lol echo > test>lol>test>>lol>test mdr >lol test >>test; cat test ; cat lol
-#  >> lol >> lol > lol >> lol echo coucou; cat lol
-# echo coucou >> lol >> lol >test >> lol ; cat lol
-# rm lol test
-
-# echo coucou > test0.log >> test0.log > test1.log >> test0.log ; cat -e test0.log
-# echo coucou > test0.log >> test0.log > test1.log >> test0.log ; cat -e test0.log
-# rm test0.log test1.log
-
-# echo salut > lol >> lol > lol
-# echo salut > lol >> lol >> lol
-# echo salut >> lol > test >> lol
-
-# ls efdjhgdf 1>2 test.log
-# rm 2
-# ls efdjhgdf -1> test.log
-# ls efdjhgdf \1> test.log
-# ls efdjhgdf 2147483647> test.log
-# ls efdjhgdf -2147483648> test.log
-# ls efdjhgdf 2147483648654565> test.log
-
-# ls 1>2 test.log
-# ls -1> test.log
-# ls \1> test.log
-# ls 2147483647> test.log
-# ls -2147483648> test.log
-# ls 2147483648654565> test.log
-
 rm test.log
+
+# expected : bash: syntax error near unexpected token `newline'
+# if in script : stops
+ls >
