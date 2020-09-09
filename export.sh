@@ -81,7 +81,15 @@ export test="   a   "
 echo $test
 echo $test$test$test$test$test$test$test$test$test$test$test
 echo "$test$test$test$test$test$test$test$test$test"
-unset $test
+unset test
+
+export TE+S=T="" ; env | sort | grep -v SHLVL | grep -v _= | grep TEST
+export TEST=LOL; export TEST+=LOL ; echo $TEST ; env | sort | grep -v SHLVL | grep -v _= | grep TEST ; unset TEST
+export TEST="ls       -l     - a" ; echo $TEST ; $LS ;  env | sort | grep -v SHLVL | grep -v _= | grep TEST ; unset TEST
+export test=hello ; export test ; env | grep test | grep -v alien; unset test
+export test=hello ; export test += coucou ; env | grep test | grep -v alien ; unset test
+
+export TEST ; export | sort | grep -v SHLVL | grep -v _= | grep -v OLDPWD
 
 # export PATH= ;
 # env | grep -v PATH
