@@ -34,8 +34,8 @@ bash alientest_minishell/export.sh 1>> alientest_minishell/bash.txt 2>> alientes
 ./minishell alientest_minishell/unset.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
 bash alientest_minishell/unset.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
-# ./minishell alientest_minishell/exit.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-# bash alientest_minishell/exit.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+./minishell alientest_minishell/exit.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
+bash alientest_minishell/exit.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 
 # testing special characters
@@ -53,8 +53,8 @@ bash alientest_minishell/backslash.sh 1>> alientest_minishell/bash.txt 2>> alien
 ./minishell alientest_minishell/pipe.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
 bash alientest_minishell/pipe.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
-# ./minishell alientest_minishell/redir_in.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-# bash alientest_minishell/redir_in.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+./minishell alientest_minishell/redir_in.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
+bash alientest_minishell/redir_in.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/redir_out.sh 1>> alientest_minishell/us.txt  2>> alientest_minishell/us_errors.txt
 bash alientest_minishell/redir_out.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt

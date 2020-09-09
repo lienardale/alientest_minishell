@@ -94,12 +94,14 @@ echo -n One"argument"'lo'l ; echo "n"''ee"d"more'?'''"'"
 echo -n -n return
 echo test "" test "" test
 echo
+
+ls |
+ls
+ls >
  
  |
 ecjo ;;;
 
-ls |
-ls >
 
 # expected :
 # stdin_mode : "bash: syntax error near unexpected token `;;'"

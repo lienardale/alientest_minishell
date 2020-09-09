@@ -1,13 +1,5 @@
 # ALL ABOVE THIS IS OK
 
-# ls |
-# ls >
-
-export PATH= ;
-env | grep -v PATH
-echo
-
-
 # /bin/lol;echo $?
 # /bin/ls/lol;echo $?
 # ./srcs;echo $?
@@ -27,14 +19,7 @@ echo
 # wrong error msg -> tries to use cd if a path is entered without a cmd
 # /bin/ls/lol
 
-# malloc errors
-# export PATH= ;
-# cat Dockerfile
-# ls
-# echo
-
 # wrong error msg
-# /bin/ls/lol
 # ./srcs
 # README.md
 
