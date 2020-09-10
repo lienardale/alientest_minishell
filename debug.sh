@@ -1,3 +1,5 @@
+cat run.sh | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat
+
 # ALL ABOVE THIS IS OK
 
 # /bin/lol;echo $?

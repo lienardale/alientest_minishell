@@ -63,3 +63,5 @@ coucou
 pwd output"
 ls | grep j | cat -e | echo coucou ; pwd ; env | grep coucou
 echo
+
+cat run.sh | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat

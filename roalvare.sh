@@ -74,19 +74,7 @@ cat run.sh | grep echo | wc
 cat run.sh | grep ehbghbeg
 cat run.sh | grep
 
-# exits instead of not exiting
-#
-# echo test | exit
-# exit | echo test
-cat run.sh | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat
-
- 
 echo ;;;;
 echo test | | wc; echo lol
 echo lol; echo test | | wc
 |
-
-# pb
-# echo \
-# echo "
-# echo '
