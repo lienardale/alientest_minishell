@@ -1,6 +1,4 @@
-#bin/bash
-cd ..
-make
+
 rm alientest_minishell/bash.txt alientest_minishell/us.txt alientest_minishell/diff.txt alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt alientest_minishell/diff_errors.txt
 # touch alientest_minishell/bash.txt alientest_minishell/us.txt
 
@@ -8,67 +6,48 @@ rm alientest_minishell/bash.txt alientest_minishell/us.txt alientest_minishell/d
 # testing execve
 
 ./minishell alientest_minishell/cat.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/cat.sh >> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/ls.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/ls.sh >> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 # testing builtins
 
 ./minishell alientest_minishell/echo.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/echo.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/pwd.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/pwd.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/cd.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/cd.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/env.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/env.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/export.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/export.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/unset.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/unset.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/exit.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/exit.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 
 # testing special characters
 
 
 ./minishell alientest_minishell/semi_colon.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/semi_colon.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/quote.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/quote.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/backslash.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/backslash.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/pipe.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/pipe.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/redir_in.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/redir_in.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/redir_out.sh 1>> alientest_minishell/us.txt  2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/redir_out.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/append.sh 1>> alientest_minishell/us.txt  2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/append.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/redir_nb.sh 1>> alientest_minishell/us.txt  2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/redir_nb.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/parsing.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/parsing.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 ./minishell alientest_minishell/return.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/return.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
 
 # testing signals
@@ -78,11 +57,3 @@ bash alientest_minishell/return.sh 1>> alientest_minishell/bash.txt 2>> alientes
 
 
 ./minishell alientest_minishell/roalvare.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-bash alientest_minishell/roalvare.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
-
-
-diff alientest_minishell/us.txt alientest_minishell/bash.txt
-diff alientest_minishell/us.txt alientest_minishell/bash.txt > alientest_minishell/diff.txt
-
-diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt | grep -v ls | grep -v cat | grep -v - | grep -v c | grep -v a
-diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt > alientest_minishell/diff_errors.txt
