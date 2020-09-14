@@ -63,3 +63,8 @@ rm alientest_minishell/bash.txt alientest_minishell/us.txt alientest_minishell/d
 
 ./minishell < alientest_minishell/echo.sh
 ./minishell < alientest_minishell/ls.sh
+
+#testing errors
+
+./minishell test/error.sh
+./minishell alientest_minishell/error.sh
