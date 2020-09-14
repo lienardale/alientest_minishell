@@ -57,3 +57,9 @@ rm alientest_minishell/bash.txt alientest_minishell/us.txt alientest_minishell/d
 
 
 ./minishell alientest_minishell/roalvare.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
+
+
+# testing stdin
+
+./minishell < alientest_minishell/echo.sh
+./minishell < alientest_minishell/ls.sh
