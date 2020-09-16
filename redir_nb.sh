@@ -2,6 +2,14 @@ echo
 echo "--- TEST NB> ---"
 echo
 
+echo coucou > test.log
+ls -l test.log
+rm tes.log
+
+echo coucou >> test.log
+ls -l test.log
+rm tes.log
+
 # expected to redir output
 export > 0test.log
 cat 0test.log | grep 'USER'
