@@ -31,10 +31,14 @@ echo $'PWD'
 echo $"PWD"
 echo $'RIP'
 echo $"RIP"
+
+# leaking
 echo $\""RIP"
 echo $3
 echo $324
 echo $RIP
+
+
 $3
 $324
 $RIP
@@ -77,8 +81,12 @@ echo '$RIP'
 echo '$ '
 echo
 echo "--more--"
+
+# leaking
 echo    $TEST lol $TEST
 echo $TEST $TEST
+
+
 echo "$?TEST"
 echo "$1TEST"
 echo "$9TEST"
