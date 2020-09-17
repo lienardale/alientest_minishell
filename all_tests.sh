@@ -85,4 +85,5 @@ diff alientest_minishell/us.txt alientest_minishell/bash.txt
 diff alientest_minishell/us.txt alientest_minishell/bash.txt > alientest_minishell/diff.txt
 
 diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt | grep -v ls | grep -v cat | grep -v - | grep -v c | grep -v a
+# diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt
 diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt > alientest_minishell/diff_errors.txt
