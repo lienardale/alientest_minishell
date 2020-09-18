@@ -1,4 +1,4 @@
 echo "--- TESTS CAT ---"
-cat Dockerfile
-cat -e Dockerfile
+cat Makefile
+cat -e Makefile
 echo
