@@ -27,6 +27,9 @@ echo test1\
 ; echo test2
 
 
+echo -nabc coucou
+
+echo -n -n coucou
 
 # bash trims the spaces when they are not escaped
 echo -n 2 : \	\	coucou

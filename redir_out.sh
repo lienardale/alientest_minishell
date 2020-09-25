@@ -75,6 +75,30 @@ cd ..
 cat 0test.log
 rm 0test.log
 
+echo
+echo 7
+echo
+echo coucou> test.log
+ls
+cat test.log
+rm test.log
+
+echo
+echo 8
+echo
+echo coucou >test.log
+ls
+cat test.log
+rm test.log
+
+echo
+echo 9
+echo
+echo coucou>test.log
+ls
+cat test.log
+rm test.log
+
 # echo
 # echo 7
 # echo
