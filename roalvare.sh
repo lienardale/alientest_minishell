@@ -70,3 +70,4 @@ echo ;;;;
 echo test | | wc; echo lol
 echo lol; echo test | | wc
 |
+

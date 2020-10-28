@@ -1,7 +1,8 @@
 #bin/bash
 
 # bash norme.sh
-bash all_tests.sh
+# bash all_tests.sh
+bash all_redirin.sh
 
 errors=$(cat diff.txt)
 if [ -z "$errors" ] ; then
