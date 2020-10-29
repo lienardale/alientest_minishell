@@ -1,15 +1,14 @@
 # alientest_minishell
 
-/!\ DOESN'T IF YOUR MINISHELL DOES NOT TAKE *.sh FILES AS ARGUMENT /!\
-
-exemple : ./minishell test.sh
-
 clone into your minishell repo without changing its name
 cd alientest_minishell
 
-to run all tests : bash run.sh
+to test norme :
+    'bash norme.sh'
 
-to run one test : bash test.sh
+to run tests : 
+    'bash run.sh' if you want to see all the options
+    'bash test.sh' if you know which test you want to run
 
 diffs with bash will be printed in stdout & in diff.txt
 bash stdout -> bash.txt
@@ -18,6 +17,5 @@ bash stderr -> bash_errors.txt
 minishell stderr -> us_errors.txt
 
 /!\ Work in progress
-- Does not test return or exit values
+- Does not test return or exit values very extensively
 - Does not test signals
-- Does not test leaks

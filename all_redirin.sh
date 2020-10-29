@@ -1,6 +1,6 @@
 #bin/bash
 
-ALL=( cat ls echo pwd cd env export unset exit semi_colon quote backslash pipe redir_in redir_out append redir_nb parsing return roalvare )
+ALL=( cat ls echo pwd cd env export unset exit semi_colon quote backslash pipe redir_in redir_out append redir_nb parsing return roalvare pcariou )
 EXECVE=( cat ls )
 BLT=( echo pwd cd env export unset exit )
 PARSING=( semi_colon quote backslash pipe redir_in redir_out append redir_nb parsing return )
@@ -26,9 +26,6 @@ if [ "$(uname -s)" != "Linux" ]
 		CYAN="\e[96m"
 		WHITE="\e[97m"
 fi
-
-cd ..
-make 1> /dev/null
 
 clean()
 {
@@ -108,8 +105,9 @@ one()
 # ./minishell alientest_minishell/signal.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
 # bash alientest_minishell/signal.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
 
+cd ..
+make 1> /dev/null
 clean
-
 
 if [ -z "$1" ]; then
         echo -en $BLUE

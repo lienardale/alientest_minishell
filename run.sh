@@ -19,7 +19,7 @@ if [ "$(uname -s)" != "Linux" ]
 		WHITE="\e[97m"
 fi
 
-echo -en $CYAN
+echo -en $RED
 echo "Before executing this tester, run 'bash norme.sh'
 Don't give too much importance to the yellow output, check the .diff files
 
