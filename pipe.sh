@@ -48,19 +48,7 @@ echo "10 : expected output : one ls output"
 ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls 
 echo 
 
-echo "11 : expected output :	bonjour
-			coucou
-			salut
-			salut"
-echo "salut
-coucou
-bonjour
-salut" | sort
-echo
 
-echo "12 : expected output : 
-coucou
-pwd output"
 ls | grep j | cat -e | echo coucou ; pwd ; env | grep coucou
 echo
 

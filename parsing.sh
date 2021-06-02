@@ -32,7 +32,6 @@ echo $"PWD"
 echo $'RIP'
 echo $"RIP"
 
-# leaking
 echo $\""RIP"
 echo $3
 echo $324
@@ -82,7 +81,6 @@ echo '$ '
 echo
 echo "--more--"
 
-# leaking
 echo    $TEST lol $TEST
 echo $TEST $TEST
 
@@ -110,27 +108,4 @@ ls >
  |
 ecjo ;;;
 
-
-# expected :
-# stdin_mode : "bash: syntax error near unexpected token `;;'"
-# in_file_mode :
-# "alientest_minishell/debug.sh: line 6: syntax error near unexpected token `;;'
-# alientest_minishell/debug.sh: line 6: `echo ;;;;'"
-# ->doesn't read the .sh further
-# echo ;;;;
-
-# expected :
-# stdin_mode : "bash: syntax error near unexpected token `;'"
-# in_file_mode :
-# "alientest_minishell/debug.sh: line 6: syntax error near unexpected token `;'
-# alientest_minishell/debug.sh: line 6: `echo ; ; ; ;'"
-# ->doesn't read the .sh further
-# echo ; ; ; ;
-
-# expected :
-# stdin_mode : "bash: syntax error near unexpected token `|'"
-# in_file_mode :
-# "alientest_minishell/debug.sh: line 7: syntax error near unexpected token `|'
-# alientest_minishell/debug.sh: line 7: `echo test | | wc; echo lol'"
-# ->doesn't read the .sh further
 echo test | | wc; echo lol

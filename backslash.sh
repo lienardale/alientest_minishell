@@ -56,6 +56,3 @@ rm test.log\\\\\ coucou
 
 echo '\\please\\' "\"fail\\"
 
-# echo test1\
-# ; echo test2
-#

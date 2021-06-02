@@ -17,20 +17,4 @@ echo test | exit 1 a 2 3
 
 cd pouet ; exit ;
 
-# echo "ls hahsda
-# exit" > exit_minishell.sh
-# ./minishell exit_minishell.sh
-# echo $?
 
-# echo "ls
-# exit" > exit_minishell.sh
-# ./minishell exit_minishell.sh
-# echo $?
-
-# echo "" > exit_minishell.sh
-# ./minishell exit_minishell.sh
-# echo $?
-
-# echo "echo coucou" > exit_minishell.sh
-# ./minishell exit_minishell.sh
-# echo $?

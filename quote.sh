@@ -5,8 +5,7 @@ echo
 echo "coucou"
 echo "coucou\""
 echo "coucou" "salut"
-echo "coucou
-salut"
+
 echo "\$"
 echo "$"
 
@@ -17,7 +16,6 @@ echo
 echo 'coucou'
 echo 'coucou\'
 echo 'coucou' 'salut'
-echo 'coucou
-salut'
+
 echo '\$'
 echo '$'
