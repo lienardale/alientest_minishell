@@ -1,109 +1,109 @@
 #bin/bash
 
-cd ..
-
-make
+make -C ../
 read -p 'Which test ?: ' test
 
+rm -rf logs/all_leaks.log logs/leak.log
+
 if [ "$test" = "all" ] ; then
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < cat.sh 2> leak.log ; echo CAT > all_leaks.log  ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < ls.sh 2>> leak.log ; echo LS >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < echo.sh 2>> leak.log ; echo ECHO >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < pwd.sh 2>> leak.log ; echo PWD >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < cd.sh 2>> leak.log ; echo CD >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < env.sh 2>> leak.log ; echo ENV >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < export.sh 2>> leak.log ; echo EXPORT >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < unset.sh 2>> leak.log ; echo UNSET >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < exit.sh 2>> leak.log ; echo EXIT >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < semi_colon.sh 2>> leak.log ; echo SEMICOLON >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < quote.sh 2>> leak.log ; echo QUOTE >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < backslash.sh 2>> leak.log ; echo BKSLH >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < pipe.sh 2>> leak.log ; echo PIPE >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < redir_in.sh 2>> leak.log ; echo REDIN >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < redir_out.sh 2>> leak.log ; echo REDOUT >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < append.sh 2>> leak.log ; echo APPEND >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < redir_nb.sh 2>> leak.log ; echo REDNB >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < parsing.sh 2>> leak.log ; echo PARSING >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < return.sh 2>> leak.log ; echo RETURN >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < roalvalre.sh 2>> leak.log ; echo ROALVARE >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < echo.sh 2>> leak.log ; echo STDIN1 >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < ls.sh 2>> leak.log ; echo STDIN2 >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < backslash.sh 2>> leak.log ; echo ERROR1 >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	echo >> all_leaks.log
-	echo ----- ----- >> all_leaks.log
-	echo >> all_leaks.log
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < error.sh 2>> leak.log ; echo ERROR2 >> all_leaks.log ; tail leak.log | grep -v minishell | grep -v error >> all_leaks.log
-	tail all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/cat.sh 2> logs/leak.log ; echo CAT > logs/all_leaks.log  ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/ls.sh 2>> logs/leak.log ; echo LS >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/echo.sh 2>> logs/leak.log ; echo ECHO >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/pwd.sh 2>> logs/leak.log ; echo PWD >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/cd.sh 2>> logs/leak.log ; echo CD >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/env.sh 2>> logs/leak.log ; echo ENV >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/export.sh 2>> logs/leak.log ; echo EXPORT >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/unset.sh 2>> logs/leak.log ; echo UNSET >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/exit.sh 2>> logs/leak.log ; echo EXIT >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/semi_colon.sh 2>> logs/leak.log ; echo SEMICOLON >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/quote.sh 2>> logs/leak.log ; echo QUOTE >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/backslash.sh 2>> logs/leak.log ; echo BKSLH >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/pipe.sh 2>> logs/leak.log ; echo PIPE >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/redir_in.sh 2>> logs/leak.log ; echo REDIN >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/redir_out.sh 2>> logs/leak.log ; echo REDOUT >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/append.sh 2>> logs/leak.log ; echo APPEND >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/redir_nb.sh 2>> logs/leak.log ; echo REDNB >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/parsing.sh 2>> logs/leak.log ; echo PARSING >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/return.sh 2>> logs/leak.log ; echo RETURN >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/roalvalre.sh 2>> logs/leak.log ; echo ROALVARE >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/echo.sh 2>> logs/leak.log ; echo STDIN1 >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/ls.sh 2>> logs/leak.log ; echo STDIN2 >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/backslash.sh 2>> logs/leak.log ; echo ERROR1 >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	echo ----- ----- >> logs/all_leaks.log
+	echo >> logs/all_leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/error.sh 2>> logs/leak.log ; echo ERROR2 >> logs/all_leaks.log ; tail logs/leak.log | grep -v minishell | grep -v error >> logs/all_leaks.log
+	tail logs/all_leaks.log
 elif [ -n "$test" ] ; then
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell < $test.sh 2> leaks.log
-	tail leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell < srcs/$test.sh 2> logs/leak.log
+	tail logs/leak.log
 else
-	valgrind --leak-check=full --show-leak-kinds=all ./minishell 2> leaks.log
-	tail leaks.log
+	valgrind --leak-check=full --show-leak-kinds=all ./../minishell 2> logs/leak.log
+	tail logs/leak.log
 fi

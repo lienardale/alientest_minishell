@@ -1,6 +1,6 @@
-cd ..
-~/.norminette/norminette.rb */*.c */*.h */*/*.c */*/*.h > norme.log
-errors=$(cat norme.log | grep Error)
+rm -rf logs/norme.log
+norminette ../*.c ../*.h ../*/*.c ../*/*.h ../*/*/*.c ../*/*/*.h > logs/norme.log
+errors=$(cat logs/norme.log | grep Error)
 if [ -z "$errors" ] ; then
 	echo "No norme error."
 else

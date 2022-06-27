@@ -1,5 +1,8 @@
 #bin/bash
 
+TEST_DIR="srcs"
+LOG_DIR="logs"
+
 ALL=( cat ls echo pwd cd env export unset exit semi_colon quote backslash pipe redir_in redir_out append redir_nb parsing return roalvare pcariou )
 EXECVE=( cat ls )
 BLT=( echo pwd cd env export unset exit )
@@ -31,30 +34,46 @@ clean()
 {
     for log in ${LOGS[*]}
     do
-        rm alientest_minishell/$log.txt 2> /dev/null
+        rm $LOG_DIR/$log.txt 2> /dev/null
     done
+}
+
+norme()
+{
+    cd ..
+    rm -rf alientest_minishell/logs/norme.log
+    norminette */*.c */*.h */*/*.c */*/*.h > alientest_minishell/logs/norme.log
+    errors=$(cat alientest_minishell/logs/norme.log | grep Error)
+    cd alientest_minishell/
+    if [ -z "$errors" ] ; then
+        echo "No norme error."
+        return 1;
+    else
+        echo "Norm error(s), check norme.log to see details."
+        return 0;
+    fi
 }
 
 do_diff()
 {
     echo -en $RED
-    diff alientest_minishell/us.txt alientest_minishell/bash.txt
+    diff $LOG_DIR/us.txt $LOG_DIR/bash.txt
     echo -en $WHITE
-    diff alientest_minishell/us.txt alientest_minishell/bash.txt > alientest_minishell/diff.txt
+    diff $LOG_DIR/us.txt $LOG_DIR/bash.txt > $LOG_DIR/diff.txt
 
     echo -en $RED
-    diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt | grep -v ls | grep -v cat | grep -v - | grep -v c | grep -v a
-    # diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt
+    diff $LOG_DIR/us_errors.txt $LOG_DIR/bash_errors.txt | grep -v ls | grep -v cat | grep -v - | grep -v c | grep -v a
+    # diff $LOG_DIR/us_errors.txt $LOG_DIR/bash_errors.txt
     echo -en $WHITE
-    diff alientest_minishell/us_errors.txt alientest_minishell/bash_errors.txt > alientest_minishell/diff_errors.txt
+    diff $LOG_DIR/us_errors.txt $LOG_DIR/bash_errors.txt > $LOG_DIR/diff_errors.txt
 }
 
 all_tests()
 {
     for scr in ${ALL[*]} 
 	do
-		./minishell < alientest_minishell/$scr.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-        bash < alientest_minishell/$scr.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+		./../minishell < $TEST_DIR/$scr.sh 1>> $LOG_DIR/us.txt 2>> $LOG_DIR/us_errors.txt
+        bash < $TEST_DIR/$scr.sh 1>> $LOG_DIR/bash.txt 2>> $LOG_DIR/bash_errors.txt
 	done
 }
 
@@ -62,8 +81,8 @@ execve()
 {
     for scr in ${EXECVE[*]} 
 	do
-		./minishell < alientest_minishell/$scr.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-        bash < alientest_minishell/$scr.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+		./../minishell < $TEST_DIR/$scr.sh 1>> $LOG_DIR/us.txt 2>> $LOG_DIR/us_errors.txt
+        bash < $TEST_DIR/$scr.sh 1>> $LOG_DIR/bash.txt 2>> $LOG_DIR/bash_errors.txt
 	done
 }
 
@@ -71,8 +90,8 @@ blt()
 {
     for scr in ${BLT[*]} 
 	do
-		./minishell < alientest_minishell/$scr.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-        bash < alientest_minishell/$scr.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+		./../minishell < $TEST_DIR/$scr.sh 1>> $LOG_DIR/us.txt 2>> $LOG_DIR/us_errors.txt
+        bash < $TEST_DIR/$scr.sh 1>> $LOG_DIR/bash.txt 2>> $LOG_DIR/bash_errors.txt
 	done
 }
 
@@ -80,8 +99,8 @@ parse()
 {
     for scr in ${PARSING[*]} 
 	do
-		./minishell < alientest_minishell/$scr.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-        bash < alientest_minishell/$scr.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+		./../minishell < $TEST_DIR/$scr.sh 1>> $LOG_DIR/us.txt 2>> $LOG_DIR/us_errors.txt
+        bash < $TEST_DIR/$scr.sh 1>> $LOG_DIR/bash.txt 2>> $LOG_DIR/bash_errors.txt
 	done
 }
 
@@ -89,24 +108,23 @@ hard()
 {
     for scr in ${HARDCORE[*]} 
 	do
-		./minishell < alientest_minishell/hardcore_tests/${scr}_hardcore.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-        bash < alientest_minishell/hardcore_tests/${scr}_hardcore.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+		./../minishell < $TEST_DIR/hardcore_tests/${scr}_hardcore.sh 1>> $LOG_DIR/us.txt 2>> $LOG_DIR/us_errors.txt
+        bash < $TEST_DIR/hardcore_tests/${scr}_hardcore.sh 1>> $LOG_DIR/bash.txt 2>> $LOG_DIR/bash_errors.txt
 	done
 }
 
 one()
 {
-	./minishell < alientest_minishell/$1.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-     bash < alientest_minishell/$1.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+	./../minishell < $TEST_DIR/$1.sh 1>> $LOG_DIR/us.txt 2>> $LOG_DIR/us_errors.txt
+     bash < $TEST_DIR/$1.sh 1>> $LOG_DIR/bash.txt 2>> $LOG_DIR/bash_errors.txt
 }
 
 # testing signals
 
-# ./minishell alientest_minishell/signal.sh 1>> alientest_minishell/us.txt 2>> alientest_minishell/us_errors.txt
-# bash alientest_minishell/signal.sh 1>> alientest_minishell/bash.txt 2>> alientest_minishell/bash_errors.txt
+# ./../minishell $TEST_DIR/signal.sh 1>> $TEST_DIR/us.txt 2>> $TEST_DIR/us_errors.txt
+# bash $TEST_DIR/signal.sh 1>> $TEST_DIR/bash.txt 2>> $TEST_DIR/bash_errors.txt
 
-cd ..
-make 1> /dev/null
+make -C ../ 1> /dev/null
 clean
 
 if [ -z "$1" ]; then
