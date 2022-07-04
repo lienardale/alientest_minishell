@@ -126,6 +126,7 @@ one()
 
 make -C ../ 1> /dev/null
 clean
+mkdir -p logs
 
 if [ -z "$1" ]; then
         echo -en $BLUE
